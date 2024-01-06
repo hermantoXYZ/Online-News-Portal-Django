@@ -33,7 +33,7 @@ Visit the live demo: [https://sudutkota.co/)
 
 ## Screenshot
 
-![Screenshot](https://github.com/hermantoXYZ/Upload-Doc-Without-Login/blob/master/Screen%20Shot%202023-12-20%20at%2012.29.33.png)
+![Screenshot](https://github.com/hermantoXYZ/Online-News-Portal-Django/blob/main/image.png)
 
 ![Screenshot](https://github.com/hermantoXYZ/Upload-Doc-Without-Login/blob/master/Screen%20Shot%202023-12-20%20at%2012.29.46.png)
 
