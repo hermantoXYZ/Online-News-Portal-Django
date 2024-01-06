@@ -1,22 +1,11 @@
-# Upload Doc Without Login
+# Online News Portal Django
 
 ## Demo
 
-Visit the live demo: [http://daftar-ulang.syatiby.id/](http://daftar-ulang.syatiby.id/)
+Visit the live demo: [https://sudutkota.co/)
 
 ## Installation
 
-1. Clone this repository to your local machine:
-
-    ```bash
-    git clone https://github.com/hermantoXYZ/Upload-Doc-Without-Login.git
-    ```
-
-2. Navigate to the project directory:
-
-    ```bash
-    cd Upload-Doc-Without-Login
-    ```
 
 3. Create and activate the virtual environment:
 
@@ -34,8 +23,13 @@ Visit the live demo: [http://daftar-ulang.syatiby.id/](http://daftar-ulang.syati
 5. Apply database migrations:
 
     ```bash
+    python manage.py makemigrations
+    ```
+
+     ```bash
     python manage.py migrate
     ```
+
 
 ## Screenshot
 
