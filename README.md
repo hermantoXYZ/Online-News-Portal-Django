@@ -54,6 +54,9 @@ Run the development server:
 
 ```bash
 python manage.py runserver
+```
 
-![Donate with PayPal](https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/PayPal_logo.svg/2560px-PayPal_logo.svg.png)
+## :eyes: Demonstration
+
+[![Donate with PayPal](https://raw.githubusercontent.com/stefan-niedermann/paypal-donate-button/master/paypal-donate-button.png)](https://paypal.me/hermantoxyz?country.x=ID&locale.x=id_ID)
 
