@@ -1,0 +1,21 @@
+{% extends "blog/base.html" %}
+{% block konten %}
+  <section class="pt-4 pb-0">
+	<div class="container">
+		<div class="row">
+      <div class="col-xl-9 mx-auto">
+        <h2>{{ static_page.title }}</h2>
+        <p class="lead">
+            {{ static_page.content|safe|linebreaks }}
+          </p>
+        <!-- Service END -->
+      </div>  <!-- Col END -->
+     </div>
+  </div>
+</section>
+
+  {% endblock konten %}
+
+
+
+

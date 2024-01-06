@@ -1,0 +1,212 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+/*h1 {*/
+/*  display: block;*/
+/*  font-size: 2em;*/
+/*  margin-top: 0.67em;*/
+/*  margin-bottom: 0.67em;*/
+/*  margin-left: 0;*/
+/*  margin-right: 0;*/
+/*  font-weight: bold;*/
+/*}*/
+/*h2 {*/
+/*  display: block;*/
+/*  font-size: 1.5em;*/
+/*  margin-top: 0.83em;*/
+/*  margin-bottom: 0.83em;*/
+/*  margin-left: 0;*/
+/*  margin-right: 0;*/
+/*  font-weight: bold;*/
+/*}*/
+/*h3 {*/
+/*  display: block;*/
+/*  font-size: 1.17em;*/
+/*  margin-top: 1em;*/
+/*  margin-bottom: 1em;*/
+/*  margin-left: 0;*/
+/*  margin-right: 0;*/
+/*  font-weight: bold;*/
+/*}*/
+/*h4 { */
+/*  display: block;*/
+/*  font-size: 1em;*/
+/*  margin-top: 1.33em;*/
+/*  margin-bottom: 1.33em;*/
+/*  margin-left: 0;*/
+/*  margin-right: 0;*/
+/*  font-weight: bold;*/
+/*}*/
+/*h5 {*/
+/*  display: block;*/
+/*  font-size: .83em;*/
+/*  margin-top: 1.67em;*/
+/*  margin-bottom: 1.67em;*/
+/*  margin-left: 0;*/
+/*  margin-right: 0;*/
+/*  font-weight: bold;*/
+/*}*/
+/*h6 {*/
+/*  display: block;*/
+/*  font-size: .67em;*/
+/*  margin-top: 2.33em;*/
+/*  margin-bottom: 2.33em;*/
+/*  margin-left: 0;*/
+/*  margin-right: 0;*/
+/*  font-weight: bold;*/
+/*}*/
+
+.progressive{
+    /*overflow:hidden;*/
+    
+}
+.progressive--not-loaded{filter:blur(30px);}
+.progressive--is-loaded{filter:blur(20px);animation:a .5s both;transform:scale(1)}
+@keyframes a{0%{filter:blur(20px)}to{filter:blur(0)}}
+
+.thumb {
+                text-align: center;
+                display: inline-block;
+                padding: 100px;
+            }
+
+.fade {
+  animation-name: fade;
+  animation-duration: 2s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/*back to top*/
+.backTop {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  display: inline-block;  
+  padding: 1em;
+  margin: 1em;
+  background: #E8E8E8;
+  border: 2px solid #000;
+}
+.backTop:hover {
+  cursor: pointer;
+}
+
+/*end back to top*/
+
+.row {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0px;
+}
+
+/*TOGGLE COLORS*/
+.dark {
+  background-color: #12141c;
+  /*color: white;*/
+}
+
+.dark-2 {
+  background-color: #171923;
+  /*color: white;*/
+}
+
+.konten {
+  background-color: #2d3748;
+  color: white;
+}
+.textnya {
+  color: white;
+}
+/*end dark mode*/
+
+.responsive-img, .materialboxed {
+    background-position:center; 
+    background-repeat:no-repeat; 
+    background-size:cover; 
+    width:100%
+}
+
+.detilnya, .materialboxed {
+    background-position:center; 
+    background-repeat:no-repeat; 
+    background-size:cover; 
+    width:100%
+}
+nav ul a,
+nav .brand-logo {
+  /* color: #444; */
+}
+
+p {
+  line-height: 2rem;
+}
+
+/* Media Object */
+.media {
+  display: flex;
+  align-items: flex-start;
+}
+.media-figure {
+  margin-right: 1em;
+}
+.media-body {
+  flex: 1;
+}
+
+/* Author Box Styles */
+.author-box {
+    background: #f7f7f7;
+    padding: 20px;
+    border-radius: 2px;
+}
+
+
+.sidenav-trigger {
+  color: #26a69a;
+}
+
+.parallax-container {
+  min-height: 380px;
+  line-height: 0;
+  height: auto;
+  color: rgba(255,255,255,.9);
+}
+  .parallax-container .section {
+    width: 100%;
+  }
+
+@media only screen and (max-width : 992px) {
+  .parallax-container .section {
+    position: absolute;
+    top: 40%;
+  }
+  #index-banner .section {
+    top: 10%;
+  }
+}
+
+@media only screen and (max-width : 600px) {
+  #index-banner .section {
+    top: 0;
+  }
+}
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+  font-size: inherit;
+}
+

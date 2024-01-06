@@ -1,0 +1,69 @@
+{% extends "blog/base.html" %}
+{% block title %}
+{{ post.title }} | Afrizal's Blog
+{% endblock title %}
+{% block konten %}
+<div class="container">
+    <div class="row">
+
+      <div class="col s12 m8">
+        <div style="padding-top:0px;"></div>
+        <div class="icon-block card-panel z-depth-1">
+        <h3><b>Halaman Tidak Ditemukan</b></h3> 
+        </div>
+
+      </div>
+
+      <div class="col s12 m4">
+
+
+        <script type="text/javascript">
+          $( document ).ready( function() {
+              $( '#icon_prefix' ).keyup( function() {
+                  var txt = $(this).val();
+                  q = $( '#icon_prefix' ).val();
+                  if (txt != '') {
+                    console.log(q)
+                    $( '#results' ).html( '&nbsp;' ).load( '{% url 'search' %}?q=' + q );
+                  } else {
+                    $('#results').html('');}
+                  
+              });
+          });
+          
+          </script>
+      <div class="input-field col s12 card-panel" style="margin-top:23px">
+      <i class="material-icons prefix ">search</i>
+      <input id="icon_prefix" type="text" name="q" class="validate">
+      <label for="icon_prefix">Cari</label>
+      <div class="margin">
+        <div id="results"></div>
+    </div>
+      </div>
+
+      <div class="icon-block card-panel" style="margin-top:89px">
+        <h5 class="center" style="padding-top:14px;"> Random Post</h5>
+        {% for post in randompost %}
+        <div class="divider"></div><div  style="font-size:10pt">
+        <a href="{% url 'post_detail' post.slug  %}"><p style="font-size:15pt">{{ post.title }}</p></a>
+          {{post.content|slice:":70"|safe }}...
+        </div>
+        <div class="divider"></div>
+        {% endfor %}
+      </div>
+  
+          <div class="card-panel">
+            <h5>Kategori</h5>
+            <div class="row">
+              {% for kat in kategori %}
+                <div class="col s6 m4"> <a href="{% url 'kategori_show' kat.kategori  %}""> <span class="new badge" data-badge-caption="{{ kat.kategori }}"></span></a></div>
+                {% endfor %}
+  
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>    
+  </div>
+
+{% endblock konten %}

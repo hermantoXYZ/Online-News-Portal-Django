@@ -1,0 +1,46 @@
+<!-- col-md-4 -->
+<div class="col-md-4">
+    <!-- TOKOH -->
+    <div class="card text-white bg-secondary mb-3" id="persons">
+        <div class="card-header">
+            <strong>PARA FILSUF TERPOPULER</strong>
+        </div>
+        <div class="card-body">
+            <ul class="card-text">
+                {% for tk in tokoh %}
+                <li><a class="text-light" href="{% url 'detail_tokohnya' tk.slug_tokoh  %}" title="Aristoteles">{{ tk.nama_tokoh }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <!-- /TOKOH -->
+    <!-- Categories -->
+    <div class="card text-white bg-dark mb-3" id="categories">
+        <div class="card-header">
+            <strong>KATEGORI KATA TERBARU</strong>
+        </div>
+        <div class="card-body">
+            <ul class="card-text">
+                <!-- START LOOP -->
+                {% for kq in kategori_quotes %}
+                <li><a class="text-light" href="{% url 'kata_bijaknya' kq.slug_kat_quot  %}">{{ kq.kategori_quotes }}</a>
+                </li>
+                {% endfor %}
+                <!-- END LOOP -->
+            </ul>
+        </div>
+    </div>
+    <!-- /Categories -->
+    <!-- Categories -->
+    <div class="card text-white bg-secondary mb-3" id="categories">
+        <div class="card-header">
+            <strong>HALAMAN TERPOPULER</strong>
+        </div>
+        <div class="card-body">
+            <ul class="card-text">
+         <li><a class="text-light" href="{% url 'all_tokoh'  %}">Semua Tokoh Populer</a>
+         </li>
+            </ul>
+        </div>
+    </div>
+</div>

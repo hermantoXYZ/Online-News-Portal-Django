@@ -1,0 +1,166 @@
+{% extends "amp_blog/base.html" %}{% load static %}  
+
+{% block meta %}
+  <meta name="Description" content="Website blog ini digunakan untuk
+   menulis dan mengisi waktu luang untuk membagi pengalaman. ">
+  <meta name="keyword" content="blog,notes,tutorial,tulisan,belajar koding, belajar pemrogaman">
+  <meta property="og:url" content="https://blog.afrizalmy.com/">
+  <meta property="og:locale" content="id_ID" />
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Afrizal's Blog">
+    <meta property="og:description" content="Website blog ini digunakan untuk
+   menulis dan mengisi waktu luang untuk membagi pengalaman.">
+    <meta property="og:site_name" content="Afrizal's Blog">
+    <meta property="article:tag" content="Tutorial" />
+<meta property="article:section" content="Tutorial" />
+{% endblock meta %}
+{% block title %}
+Afrizal's Blog
+{% endblock title %}
+{% block konten %}
+
+{% block banner %}
+<div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <h3 class="header center white-text text-lighten-2">Welcome</h1>
+        <div class="row center">
+          <h5 class="header col s12 white-text">To My Website</h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax" style="opacity:0.85;"><img src="{% static 'layout/img/bg.png' %}"  alt="gambar"></div>
+  </div>
+{% endblock banner %}
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m8">
+        <div style="padding-top:1px;"></div>
+        {% for post in post_list %}
+        <div class="icon-block card-panel z-depth-1">
+          <h4 class="center" style="padding-top:14px;"> <a class="black-text" href="{% url 'amp_post_detail' post.slug  %}">{{ post.title }}</a> </h4>
+          <div class="light center" style="font-size:10pt">Tanggal : {{ post.created_on }} | Kategori: {{ post.kategori }}</div>
+          <!-- <img class="img" src="media/{{ post.banner }}" style="width: 90%; height:70%;background-size: cover;
+          background-repeat: no-repeat;background-position: center;"> -->
+          <div class="row">
+            <div class="col s12 m6">{{post.content|slice:":150"|safe }}...</div>
+            <div class="col s12 m6"><a href="{% url 'amp_post_detail' post.slug  %}"><img alt="gambar" class="img" src="media/{{ post.banner }}" style="width: 90%; height:70%;background-size: cover;
+              background-repeat: no-repeat;background-position: center;"></a></div>
+          </div>
+         
+              <div class="right"><a href="{% url 'amp_post_detail' post.slug  %}" class="waves-effect waves-light btn light-blue lighten-1">Baca Selengkapnya</a></div><br><br><br>
+        </div>
+        {% endfor %}
+        {% if post_list.has_other_pages %}
+
+    <div class="row center">
+        <div class="card-panel col s12">
+            <ul class="pagination">
+                {% if post_list.has_previous %}
+                <li><a href="?page={{ post_list.previous_page_number }}"><i class="material-icons">chevron_left</i></a></li>
+                {% else %}
+                <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+                {% endif %}
+                {% for i in post_list.paginator.page_range %}
+                {% if post_list.number == i %}
+                    <li class="active"><a href="#!">{{ i }} </a></li>
+                {% else %}
+                    <li class="waves-effect"><a href="?page={{ i }}">{{ i }}</a></li>
+                {% endif %}
+                {% endfor %}
+                {% if post_list.has_next %}
+                <li class="waves-effect"><a href="?page={{ post_list.next_page_number }}"><i class="material-icons">chevron_right</i></a></li>
+                {% else %}
+                <li class="disabled"><span>&raquo;</span></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+{% endif %}
+      </div>
+
+      <div class="col s12 m4">
+<!-- 
+          <form action="cari/?q=" method="get">		{% csrf_token %}   -->
+            <script type="text/javascript">
+              $( document ).ready( function() {
+                  $( '#icon_prefix' ).keyup( function() {
+                      var txt = $(this).val();
+                      q = $( '#icon_prefix' ).val();
+                      if (txt != '') {
+                        console.log(q)
+                        $( '#results' ).html( '&nbsp;' ).load( '{% url 'search' %}?q=' + q );
+                      } else {
+                        $('#results').html('');}
+                      
+                  });
+              });
+              
+              </script>
+          <div class="input-field col s12 card-panel" style="margin-top:23px">
+          <i class="material-icons prefix ">search</i>
+          <input id="icon_prefix" type="text" name="q" class="validate">
+          <label for="icon_prefix">Cari</label>
+          <div class="margin">
+            <div id="results"></div>
+        </div>
+          </div>
+        <!-- </form> -->
+
+
+
+        <div class="icon-block card-panel" style="margin-top:89px">
+          <h5 class="center" style="padding-top:14px;"> Random Post</h5>
+          {% for post in randompost %}
+          <div class="divider"></div><div  style="font-size:10pt">
+          <a href="{% url 'amp_post_detail' post.slug  %}"><p class="black-text" style="font-size:15pt">{{ post.title }}</p></a>
+            {{post.content|slice:":70"|safe }}...
+          </div>
+          <div class="divider"></div>
+          {% endfor %}
+        </div>
+
+        <div class="card-panel">
+          <h5>Kategori</h5>
+          <div class="row">
+            {% for kat in kategori %}
+              <div class="col s6 m4"> <a href="{% url 'kategori_show' kat.kategori  %}"> <span class="new badge" data-badge-caption="{{ kat.kategori }}"></span></a></div>
+              {% endfor %}
+
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+<!-- 
+  {% if post_list.has_other_pages %}
+
+  <div class="row container">
+    <div class="card-panel col s12 m8">
+      <h5 class="center"> 
+  <ul class="pagination">
+    {% if post_list.has_previous %}
+    <li><a href="?page={{ post_list.previous_page_number }}"><i class="material-icons">chevron_left</i></a></li>
+    {% else %}
+    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+    {% endif %}
+    {% for i in post_list.paginator.page_range %}
+      {% if post_list.number == i %}
+         <li class="active"><a href="#!">{{ i }} </a></li>
+      {% else %}
+        <li class="waves-effect"><a href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if post_list.has_next %}
+    <li class="waves-effect"><a href="?page={{ post_list.next_page_number }}"><i class="material-icons">chevron_right</i></a></li>
+    {% else %}
+      <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+  </ul>
+</div>
+</div>
+{% endif %} -->
+{% endblock konten %}

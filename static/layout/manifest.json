@@ -1,0 +1,23 @@
+{
+	"dir" : "ltr",
+	"lang" : "Indonesian",
+	"name" : "Afrizal's Blog",
+	"scope" : "/",
+	"display" : "standalone",
+	"start_url" : "https://blog.afrizalmy.com/",
+	"short_name" : "Afrizal's Blog",
+	"theme_color" : "transparent",
+	"description" : "Blog",
+	"orientation" : "portrait",
+	"background_color" : "#ffffff",
+	"related_applications" : [],
+	"prefer_related_applications" : false,
+	"icons" : [
+		{
+			"src": "https://blog.afrizalmy.com/static/2.png ",
+			"sizes": "182x182"
+		}],
+	"url" : "https://blog.afrizalmy.com/",
+	"screenshots" : [],
+	"generated" : "true"
+}

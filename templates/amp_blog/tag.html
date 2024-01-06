@@ -1,0 +1,168 @@
+{% extends "blog/base.html" %}
+{% block meta %}
+  <meta name="Description" content="Website blog ini digunakan untuk
+   menulis dan mengisi waktu luang untuk membagi pengalaman. ">
+  <meta name="keyword" content="blog,notes,tutorial,tulisan,belajar koding, belajar pemrogaman">
+  <meta property="og:url" content="https://blog.afrizalmy.com/">
+  <meta property="og:locale" content="id_ID" />
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Afrizal's Blog">
+    <meta property="og:description" content="Website blog ini digunakan untuk
+   menulis dan mengisi waktu luang untuk membagi pengalaman.">
+    <meta property="og:site_name" content="Afrizal's Blog">
+    <meta property="article:tag" content="Tutorial" />
+<meta property="article:section" content="Tutorial" />
+{% endblock meta %}
+{% block title %}
+Tag {{ tag }} | Afrizal's Blog
+{% endblock title %}
+{% block konten %}
+<div class="container">
+    <div class="row">
+      <div class="col s12 m8">
+        <div style="padding-top:14px;"></div>
+        <!-- {% if hitung > 0 %} -->
+        
+        <h5 class="card-panel">Lihat Tag : {{ tag }} </h5>
+        {% for post in post_list %}
+        <div class="icon-block card-panel z-depth-1">
+          <h4 class="center" style="padding-top:14px;"><a class="black-text" href="{% url 'post_detail' post.slug  %}">{{ post.title }}</a></h4>
+          <div class="light center" style="font-size:10pt">Tanggal : {{ post.created_on }} | Kategori: {{ post.kategori }}</div>
+          <!-- <img class="img" src="media/{{ post.banner }}" style="height:125px;weight:responsive"> -->
+          <div class="row">
+            <div class="col s12 m6">{{post.content|slice:":220"|safe }}...</div>
+            <div class="col s12 m6"><a href="{% url 'post_detail' post.slug  %}"><img alt="gambar" class="img" src="/media/{{ post.banner }}" style="width: 90%; height:70%;background-size: cover;
+              background-repeat: no-repeat;background-position: center;"></a></div>
+          </div>
+          <p class="">
+              <div class="right"><a href="{% url 'post_detail' post.slug  %}" class="waves-effect waves-light btn light-blue lighten-1">Baca Selengkapnya</a></div><br><br></p>
+        </div>
+        {% endfor %}
+        <!-- {% else %} -->
+        <h4 class="card-panel">Lihat Kategori : {{ slug }} </h4>
+        <h4 class="card-panel">Tidak Ditemukan</h4>
+        <!-- {% endif %} -->
+  {% if post_list.has_other_pages %}
+
+    <div class="row center">
+        <div class="card-panel col s12">
+        <!-- <h5 class="center">  -->
+            <ul class="pagination">
+                {% if post_list.has_previous %}
+                <li><a href="?page={{ post_list.previous_page_number }}"><i class="material-icons">chevron_left</i></a></li>
+                <!-- <li><a href="?page={{ post_list.previous_page_number }}">&laquo;</a></li> -->
+                {% else %}
+                <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+                {% endif %}
+                {% for i in post_list.paginator.page_range %}
+                {% if post_list.number == i %}
+                    <li class="active"><a href="#!">{{ i }} </a></li>
+                    <!-- <li class="active"><span>{{ i }} <span class="sr-only"></span></span></li> -->
+                {% else %}
+                    <li class="waves-effect"><a href="?page={{ i }}">{{ i }}</a></li>
+                    <!-- <li><a href="?page={{ i }}">{{ i }}</a></li> -->
+                {% endif %}
+                {% endfor %}
+                {% if post_list.has_next %}
+                <li class="waves-effect"><a href="?page={{ post_list.next_page_number }}"><i class="material-icons">chevron_right</i></a></li>
+                <!-- <li><a href="?page={{ post_list.next_page_number }}">&raquo;</a></li> -->
+                {% else %}
+                <li class="disabled"><span>&raquo;</span></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+{% endif %}
+      </div>
+
+      <div class="col s12 m4">
+
+
+        <script type="text/javascript">
+          $( document ).ready( function() {
+              $( '#icon_prefix' ).keyup( function() {
+                  var txt = $(this).val();
+                  q = $( '#icon_prefix' ).val();
+                  if (txt != '') {
+                    console.log(q)
+                    $( '#results' ).html( '&nbsp;' ).load( '{% url 'search' %}?q=' + q );
+                  } else {
+                    $('#results').html('');}
+                  
+              });
+          });
+          
+          </script>
+      <div class="input-field col s12 card-panel" style="margin-top:23px">
+      <i class="material-icons prefix ">search</i>
+      <input id="icon_prefix" type="text" name="q" class="validate">
+      <label for="icon_prefix">Cari</label>
+      <div class="margin">
+        <div id="results"></div>
+    </div>
+      </div>
+
+
+
+      <div class="icon-block card-panel" style="margin-top:89px">
+        <h5 class="center" style="padding-top:14px;"> Random Post</h5>
+        {% for post in randompost %}
+        <div class="divider"></div><div  style="font-size:10pt">
+        <a href="{% url 'post_detail' post.slug  %}"><p class="black-text" style="font-size:15pt">{{ post.title }}</p></a>
+          {{post.content|slice:":70"|safe }}...
+        </div>
+        <div class="divider"></div>
+        {% endfor %}
+      </div>
+        <div class="card-panel">
+          <h5>Kategori</h5>
+          <div class="row">
+            {% for kat in kategori %}
+              <div class="col s6 m4"> <a href="{% url 'kategori_show' kat.kategori  %}""> <span class="new badge" data-badge-caption="{{ kat.kategori }}"></span></a></div>
+              {% endfor %}
+
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    </div>
+
+<!--
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="background2.jpg" alt="Unsplashed background img 2"></div>
+  </div>
+
+  <div class="container">
+    <div class="section">
+
+      <div class="row">
+        <div class="col s12 center">
+          <h3><i class="mdi-content-send brown-text"></i></h3>
+          <h4>Contact Us</h4>
+          <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="background3.jpg" alt="Unsplashed background img 3"></div>
+  </div>-->
+{% endblock konten %}

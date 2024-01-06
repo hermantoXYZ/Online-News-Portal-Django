@@ -1,0 +1,220 @@
+{% load static %}  <!DOCTYPE html><html lang="en"><head>
+<title>{% block title %} {% endblock title %}</title>{% block meta %}{% endblock meta %}<!-- Google Font -->	
+<link rel="preconnect" href="https://fonts.gstatic.com">	
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">	
+<!-- Plugins CSS -->	
+<link rel="stylesheet" type="text/css" href="/static/layout/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/static/assets/bootstrap-icons.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-GLhlTQ8iSIIHsLACCz0BzSFMIBPXjeP9M1Za1nq21DeF5GgAPBS6AyFb8+RDvQ"
+crossorigin="anonymous">
+<script src="https://kit.fontawesome.com/0eec1df4a6.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" type="text/css" href="/static/layout/css/tiny-slider.css">
+<link rel="stylesheet" type="text/css" href="/static/layout/css/plyr.css">
+<!-- Theme CSS -->	
+<link id="style-switch" rel="stylesheet" type="text/css" href="/static/layout/css/style.css">
+<meta content="vIRdOIkBwSlKuziRKAvn_GXcA9fqMrRYXEygEA9zYEY" name=google-site-verification>
+<!-- Global site tag (gtag.js) - Google Analytics -->	
+<script src="{% static 'ckeditor/ckeditor/ckeditor_custom.js' %}"></script>
+</head>
+<body>
+<!-- =======================
+Header START -->
+<header class="navbar-light navbar-sticky header-static">
+	<!-- Logo Nav START -->
+	<nav class="navbar navbar-expand-lg">
+		<div class="container">
+			<!-- Logo START -->
+			<a class="navbar-brand" href="/">
+				<img class="navbar-brand-item light-mode-item" src="https://sudutkota.co/media/logo.png" alt="logo">			
+				<img class="navbar-brand-item dark-mode-item" src="https://sudutkota.co/media/logo.png" alt="logo">			
+			</a>
+			<!-- Logo END -->
+			<!-- Responsive navbar toggler -->
+			<button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+			  <span class="text-body h6 d-none d-sm-inline-block">Menu</span>
+			  <span class="navbar-toggler-icon"></span>
+		  </button>
+			<!-- Main navbar START -->
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+				<ul class="navbar-nav navbar-nav-scroll mx-auto">
+
+					<!-- Nav item 1 Demos -->
+					<li class="nav-item"> <a class="nav-link" href="/">Home</a></li>
+
+					<!-- Nav item 2 Pages -->
+					
+					<li class="nav-item"> <a class="nav-link" href="/kategori/news/">News</a></li>
+					<li class="nav-item"> <a class="nav-link" href="/kategori/politik/">Politik</a></li>
+					<li class="nav-item"> <a class="nav-link" href="/kategori/hukum/">Hukum</a></li>
+					<li class="nav-item"> <a class="nav-link" href="/kategori/daerah/">Daerah</a></li>
+					<li class="nav-item"> <a class="nav-link" href="/kategori/metropolitan/">Metropolitan</a></li>
+					<li class="nav-item"> <a class="nav-link" href="/kategori/makassar/">Makassar</a></li>
+
+					<!-- Nav item 4 Mega menu -->
+					
+
+					<!-- Nav item 5 link-->
+					
+				</ul>
+			</div>
+			<!-- Main navbar END -->
+
+			<!-- Nav right START -->
+			<div class="nav flex-nowrap align-items-center">
+				<!-- Nav Button -->
+				
+				<!-- Nav Search -->
+			
+				<div class="nav-item dropdown dropdown-toggle-icon-none nav-search">
+					<a class="nav-link dropdown-toggle" role="button" href="#" id="navSearch" data-bs-toggle="dropdown" aria-expanded="false">
+						<i class="fa-solid fa-magnifying-glass-plus"></i>
+					</a>
+					<div class="dropdown-menu dropdown-menu-end shadow rounded p-2" aria-labelledby="navSearch">
+						<form class="input-group" action="{% url 'search' %}" method="get"> <!-- Ganti 'search' dengan nama URL Anda -->
+							<input class="form-control border-success" type="search" placeholder="Search" aria-label="Search" name="q">
+							<button class="btn btn-success m-0" type="submit">Search</button>
+						</form>
+					</div>
+				</div>
+
+			</div>
+			<!-- Nav right END -->
+		</div>
+	</nav>
+	<!-- Logo Nav END -->
+</header>
+{% for iklan in iklan_upmiddle %}
+<section class="p-0">
+	<div class="container">
+		<div class="row">
+			<div class="col text-center">
+				<a href="{{ iklan.link }}" class="d-block card-img-flash">
+					<img src="{{ iklan.gambar.url }}" alt="{{ iklan.judul }}">
+				</a>
+				<small class="text-end d-block mt-1">Advertisement</small>
+			</div>
+		</div>
+	</div>
+</section>
+{% endfor %}
+<!-- =======================
+Header END -->
+
+<!-- **************** MAIN CONTENT START **************** -->
+
+{% block konten %}
+{% block banner %}
+{% endblock banner %}
+{% endblock konten %}
+
+<!-- =======================
+Footer START -->
+<footer class="pb-0">
+	<div class="container">
+		
+		<!-- Widgets START -->
+		<div class="row pt-5">
+			<!-- Footer Widget -->
+			<div class="col-md-6 col-lg-4 mb-4">
+				<img class="light-mode-item" src="https://sudutkota.co/media/logo.png" alt="logo">			
+				<img class="dark-mode-item" src="https://sudutkota.co/media/logo.png" alt="logo">
+				<p class="mt-3">Sudutkota.co merupakan media profesional yang mengedepankan pemberitaan terupdate dan terfakta Seputar Sulawesi Selatan.</p>
+				<div class="mt-4">©2024 <a href="/" class="text-reset btn-link" target="_blank">Ndx</a>. All rights reserved
+				</div>
+			</div>
+
+			<!-- Footer Widget -->
+			<div class="col-md-6 col-lg-3 mb-4">
+				<h5 class="mb-4">Navigation</h5>
+				<div class="row">
+					<div class="col-6">
+						<ul class="nav flex-column">
+							<li class="nav-item"><a class="nav-link pt-0" href="/page/tentang-kami/">Tentang Kami</a></li>
+							<li class="nav-item"><a class="nav-link" href="/page/kebijakan-privasi/">Kebijakan Privasi</a></li>
+							<li class="nav-item"><a class="nav-link" href="/page/pedoman-komunitas/">Pedoman Komunitas</a></li>
+							<li class="nav-item"><a class="nav-link" href="/page/redaksi">Redaksi</a></li>
+						</ul>
+					</div>
+ 					<div class="col-6">
+						<ul class="nav flex-column">
+							<li class="nav-item"><a class="nav-link pt-0" href="/page/kontak-kami/">Kontak Kami</a></li>
+							<li class="nav-item"><a class="nav-link" href="/page/career/">Career <span class="badge text-bg-danger ms-2">2 Job</span></a></li>
+							<li class="nav-item"><a class="nav-link pt-0" href="/page/support/">Support</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<!-- Footer Widget -->
+			<div class="col-sm-6 col-lg-3 mb-4">
+				<h5 class="mb-4">Browse by Tag</h5>
+				<ul class="list-inline">
+					<li class="list-inline-item"><a href="/kategori/berita-terbaru/" class="btn btn-sm btn-primary-soft">Berita Terbaru</a></li>
+					<li class="list-inline-item"><a href="/kategori/politik/" class="btn btn-sm btn-warning-soft">Politik</a></li>
+					<li class="list-inline-item"><a href="/kategori/sulsel/" class="btn btn-sm btn-success-soft">Sulawesi Selatan</a></li>
+					<li class="list-inline-item"><a href="/kategori/hukum/" class="btn btn-sm btn-danger-soft">Hukum</a></li>
+					<li class="list-inline-item"><a href="/kategori/metropolitan/" class="btn btn-sm btn-info-soft">Metropolitan</a></li>
+				</ul>
+			</div>
+
+			<!-- Footer Widget -->
+			<div class="col-sm-6 col-lg-2 mb-4">
+				<h5 class="mb-4">Our Social handles</h5>
+				<ul class="nav flex-column">
+					<li class="nav-item"><a class="nav-link pt-0" href="#"><i class="fab fa-facebook-square fa-fw me-2 text-facebook"></i>Facebook</a></li>
+					<li class="nav-item"><a class="nav-link" href="#"><i class="fab fa-twitter-square fa-fw me-2 text-twitter"></i>Twitter</a></li>
+					<li class="nav-item"><a class="nav-link" href="#"><i class="fab fa-linkedin fa-fw me-2 text-linkedin"></i>Linkedin</a></li>
+					<li class="nav-item"><a class="nav-link" href="#"><i class="fab fa-youtube-square fa-fw me-2 text-youtube"></i>YouTube</a></li>
+				</ul>
+			</div>
+		</div>
+		<!-- Widgets END -->
+	</div>
+</footer>
+<!-- =======================
+Footer END -->
+<!-- Bootstrap JS -->
+<script src="/static/layout/js/bootstrap.bundle.min.js"></script>
+<script>
+    var currentCount = {{ post_list|length }};  // Jumlah post awal
+    var loadMoreBtn = document.getElementById('load-more-btn');
+    var postContainer = document.getElementById('post-container');
+
+    loadMoreBtn.addEventListener('click', function () {
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                var data = JSON.parse(xhr.responseText);
+
+                // Render post tambahan ke dalam container
+                data.posts.forEach(function (post) {
+                    var postDiv = document.createElement('div');
+                    postDiv.innerHTML = '<h2><a href="' + post.slug + '">' + post.title + '</a></h2>';
+                    // Tambahkan elemen-elemen post lainnya sesuai kebutuhan
+                    postContainer.appendChild(postDiv);
+                });
+
+                // Perbarui jumlah post yang telah ditampilkan
+                currentCount += data.posts.length;
+
+                // Jika tidak ada post lagi, sembunyikan tombol "Load More"
+                if (data.posts.length === 0) {
+                    loadMoreBtn.style.display = 'none';
+                }
+            }
+        };
+
+        // Menggunakan parameter query string untuk menentukan jumlah post yang telah ditampilkan
+        xhr.open('GET', '/load_more_posts/?page=' + currentCount, true);
+        xhr.send();
+    });
+</script>
+<!-- Vendors -->
+<script src="/static/layout/js/tiny-slider.js"></script>
+<script src="/static/layout/js/sticky.min.js"></script>
+<script src="/static/layout/js/plyr.js"></script>
+
+<!-- Template Functions -->
+<script src="/static/layout/js/functions.js"></script>
+</body>
+</html>

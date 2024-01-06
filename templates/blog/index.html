@@ -1,0 +1,444 @@
+{% extends "blog/base.html" %}{% load static %}  
+{% block title %}Sudutkota.co- Berita Terbaru dan Terpopuler {% endblock title %}{% block meta %}
+	<!-- Meta Tags -->	
+<meta charset="utf-8">	
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">  
+<meta name="author" content="sudutkota.co">  
+<meta name="description" content="Sudutkota, Berita Terkini, Berita Terpopuler, Info Berita Terupdate">
+<meta name="robots" content="index, follow" />
+<meta name="googlebot-news" content="index,follow" />
+<meta name="googlebot" content="index,follow" />
+<meta name="yahoobot" content="index,follow" />
+<meta name="title" content="Sudutkota - Berita Terbaru Terkini dan Terpopuler" />
+<meta name="keywords" content="Sudutkota, Berita Terkini, Berita Terpopuler, Info Berita Terupdate, PSM, info Bola, live streaming" itemprop="keywords" />
+<meta name="news_keywords" content="Hadir memberikan informasi yang aktual dan berimbang." />
+<meta name='robots' content='max-image-preview:large' />
+<meta name="description" content="Sudutkota.co- Berita Terkini dan Terpopuler tentang Sulsel" />
+<link rel="canonical" href="https://sudutkota.co/" />
+<meta property="og:locale" content="id_ID" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Sudutkota.co- Berita Terkini dan Terpopuler tentang Sulsel" />
+<meta property="og:description" content="Sudutkota.co Hadir memberikan informasi yang aktual dan berimbang." />
+<meta property="og:url" content="https://sudutkota.co/" />
+<meta property="og:site_name" content="sudutkota" />
+<meta property="og:image" content="https://sudutkota.co/media/logo.png" />
+<meta property="og:image:width" content="800" />
+<meta property="og:image:height" content="600" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta content="vIRdOIkBwSlKuziRKAvn_GXcA9fqMrRYXEygEA9zYEY" name=google-site-verification>
+<link rel="shortcut icon" href="https://sudutkota.co/static/favicon.ico">	
+{% endblock meta %} 
+{% block konten %}
+
+<section class="pt-3 pb-3 mb-2 card-grid">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="tiny-slider arrow-hover arrow-blur arrow-white arrow-round rounded-3 overflow-hidden">
+					<div class="tiny-slider-inner"
+					data-autoplay="true"
+					data-hoverpause="true"
+					data-gutter="1"
+					data-arrow="true"
+					data-dots="false"
+					data-items="1">
+					{% for headline in headline_list %}
+						<!-- Slide 1 -->
+						<div class="card bg-dark-overlay-3 h-400 h-sm-500 h-md-600 rounded-0" style="background-image:url({{ headline.banner.url }}); background-position: center left; background-size: cover;">
+							<!-- Card Image overlay -->
+		          <div class="card-img-overlay d-flex align-items-center p-3 p-sm-5"> 
+		            <div class="w-100 my-auto">
+			            <div class="col-md-10 col-lg-7 mx-auto text-center">
+			            	<!-- Card category -->
+			            	<a href="#" class="badge bg-primary mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>{{ headline.kategori }}</a>
+			            	<!-- Card title -->
+			              <h2 class="text-white display-5"><a href="{% url 'post_detail' slug=headline.slug %}" class="btn-link text-reset fw-normal">{{ headline.title }}</a></h2>
+			              <p class="text-white">{{ headline.meta_keyword }}.</p>
+			              <!-- Card info -->
+										<ul class="nav nav-divider text-white-force align-items-center d-none d-sm-inline-block">
+										
+			            </div>
+		            </div>
+		          </div>
+						</div>
+						{% endfor %}
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- CONTENCT  -->
+<section class="py-2">
+	<div class="container">
+		<div class="row g-0">
+			<div class="col-12 bg-primary bg-opacity-10 p-2 rounded">
+				<div class="d-sm-flex align-items-center text-center text-sm-start">
+					<!-- Title -->
+					<div class="me-3">
+						<span class="badge bg-primary p-2 px-3">Trending:</span>
+					</div>
+					<!-- Slider -->
+					<div class="tiny-slider arrow-end arrow-xs arrow-white arrow-round arrow-md-none">
+						<div class="tiny-slider-inner"
+							data-autoplay="true"
+							data-hoverpause="true"
+							data-gutter="0"
+							data-arrow="true"
+							data-dots="false"
+							data-items="1">
+							<!-- Slider items -->
+
+							{% for post in popular_posts %}
+							<div>
+							 <a href="{% url 'post_detail' post.slug %}" class="text-reset btn-link">{{ post.title }}</a>
+							</div>
+						  {% endfor %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div> <!-- Row END -->
+	</div>
+</section>
+<!-- =======================
+Recent Episodes START -->
+<section class="pt-0 pt-lg-5">
+	<div class="container">
+    <div class="row">
+		<div class="col-lg-8">
+			<!-- Title -->
+			<h2 class="mb-4">Berita Terbaru</h2>
+			<!-- Episodes Item START -->
+			<div id="post-container">
+				{% for post in post_list|dictsortreversed:"publish_date" %}
+					<div class="card border rounded-3 p-3 mb-4">
+						<div class="row g-4">
+							<!-- Image -->
+							<div class="col-md-5">
+								<div class="position-relative">
+									<img class="card-img" src="/media/{{ post.banner }}" alt="Card image">
+								</div>
+							</div>
+							<div class="col-md-7">
+								<div class="d-flex justify-content-between mb-2">
+									<!-- Episode -->
+									<a href="/kategori/{{ post.kategori|lower }}/">{{ post.kategori }}</a>
+									<!-- <span>{{ post.publish_date|date:"d F Y H:i" }}</span>-->
+								</div>
+								<!-- Title -->
+								<h4 class="card-title">
+									<a href="{% url 'post_detail' post.slug  %}" class="btn-link text-reset">{{ post.title }}</a>
+								</h4>
+								<p class="card-text">{{ post.meta_keyword }}</p>
+							</div>
+						</div>
+					</div>
+
+					{% if forloop.counter == 10 %}
+					<!-- Display hukum_posts after the 5th post from post_list -->
+					<div class="col-md-12">
+						<!-- Title -->
+						<div class="mb-4 d-md-flex justify-content-between align-items-center">
+							<li class="list-inline-item"><a href="/kategori/politik/" class="btn btn-sm btn-danger-soft">News</a></li>
+						</div>
+						<div class="tiny-slider arrow-hover arrow-blur arrow-dark arrow-round">
+							<div class="tiny-slider-inner"
+								data-autoplay="true"
+								data-hoverpause="true"
+								data-gutter="24"
+								data-arrow="true"
+								data-dots="false"
+								data-items-xl="4" 
+								data-items-md="3" 
+								data-items-sm="2" 
+								data-items-xs="1">
+					
+								{% for post in news_posts %}
+									<div class="card">
+										<!-- Card img -->
+										<div class="position-relative">
+											<img class="card-img" src="/media/{{ post.banner }}" alt="Card image" style="height: 120px; object-fit: cover;">
+											<div class="card-img-overlay d-flex align-items-start flex-column p-3">
+												<!-- Card overlay Top -->
+												<!-- Card overlay bottom -->
+												<div class="w-100 mt-auto">
+													<a href="#" class="badge text-bg-info mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>{{ post.kategori }}</a>
+												</div>
+											</div>
+										</div>
+										<div class="card-body px-0 pt-3">
+											<h6 class="card-title"><a href="{% url 'post_detail' post.slug %}" class="btn-link text-reset fw-bold">{{ post.title }}</a></h6>
+											<!-- Card info -->
+											<ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
+												<li class="nav-item">{{ post.pub_date }}</li>
+											</ul>
+										</div>
+									</div>
+								{% endfor %}
+							</div>
+						</div>
+					</div>
+				{% endif %}
+
+
+				{% if forloop.counter == 15 %}
+				<!-- Display hukum_posts after the 5th post from post_list -->
+				<div class="col-md-12">
+					<!-- Title -->
+					<div class="mb-4 d-md-flex justify-content-between align-items-center">
+						<li class="list-inline-item"><a href="/kategori/politik/" class="btn btn-sm btn-info-soft">News</a></li>
+					</div>
+					<div class="tiny-slider arrow-hover arrow-blur arrow-dark arrow-round">
+						<div class="tiny-slider-inner"
+							data-autoplay="true"
+							data-hoverpause="true"
+							data-gutter="24"
+							data-arrow="true"
+							data-dots="false"
+							data-items-xl="4" 
+							data-items-md="3" 
+							data-items-sm="2" 
+							data-items-xs="1">
+				
+							{% for post in hukum_posts %}
+								<div class="card">
+									<!-- Card img -->
+									<div class="position-relative">
+										<img class="card-img" src="/media/{{ post.banner }}" alt="Card image" style="height: 120px; object-fit: cover;">
+										<div class="card-img-overlay d-flex align-items-start flex-column p-3">
+											<!-- Card overlay Top -->
+											<!-- Card overlay bottom -->
+											<div class="w-100 mt-auto">
+												<a href="#" class="badge text-bg-info mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>{{ post.kategori }}</a>
+											</div>
+										</div>
+									</div>
+									<div class="card-body px-0 pt-3">
+										<h6 class="card-title"><a href="{% url 'post_detail' post.slug %}" class="btn-link text-reset fw-bold">{{ post.title }}</a></h6>
+										<!-- Card info -->
+										<ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
+											<li class="nav-item">{{ post.pub_date }}</li>
+										</ul>
+									</div>
+								</div>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			{% endif %}
+
+					{% if forloop.counter == 5 %}
+						<!-- Display hukum_posts after the 5th post from post_list -->
+						<div class="col-md-12">
+							<!-- Title -->
+							<div class="mb-4 d-md-flex justify-content-between align-items-center">
+								<li class="list-inline-item"><a href="/kategori/politik/" class="btn btn-sm btn-warning-soft">Politik</a></li>
+							</div>
+							<div class="tiny-slider arrow-hover arrow-blur arrow-dark arrow-round">
+								<div class="tiny-slider-inner"
+									data-autoplay="true"
+									data-hoverpause="true"
+									data-gutter="24"
+									data-arrow="true"
+									data-dots="false"
+									data-items-xl="4" 
+									data-items-md="3" 
+									data-items-sm="2" 
+									data-items-xs="1">
+						
+									{% for post in politik_posts %}
+										<div class="card">
+											<!-- Card img -->
+											<div class="position-relative">
+												<img class="card-img" src="/media/{{ post.banner }}" alt="Card image" style="height: 120px; object-fit: cover;">
+												<div class="card-img-overlay d-flex align-items-start flex-column p-3">
+													<!-- Card overlay Top -->
+													<!-- Card overlay bottom -->
+													<div class="w-100 mt-auto">
+														<a href="#" class="badge text-bg-info mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>{{ post.kategori }}</a>
+													</div>
+												</div>
+											</div>
+											<div class="card-body px-0 pt-3">
+												<h6 class="card-title"><a href="{% url 'post_detail' post.slug %}" class="btn-link text-reset fw-bold">{{ post.title }}</a></h6>
+												<!-- Card info -->
+												<ul class="nav nav-divider align-items-center d-none d-sm-inline-block">
+													<li class="nav-item">{{ post.pub_date }}</li>
+												</ul>
+											</div>
+										</div>
+									{% endfor %}
+								</div>
+							</div>
+						</div>
+					{% endif %}
+				{% endfor %}
+			</div>
+			<div class="col-12">
+				<!-- Pagination START -->
+				<nav class="mt-4 d-flex justify-content-center" aria-label="navigation">
+					<ul class="pagination flex-wrap justify-content-center pagination-bordered mb-0">
+						{% if post_list.has_previous %}
+							<li class="page-item">
+								<a class="page-link" href="?page=1" tabindex="-1" aria-disabled="true">Prev</a>
+							</li>
+						{% else %}
+							<li class="page-item disabled">
+								<span class="page-link" tabindex="-1" aria-disabled="true">Prev</span>
+							</li>
+						{% endif %}
+			
+						{% for i in post_list.paginator.page_range %}
+							{% if post_list.number == i %}
+								<li class="page-item active">
+									<span class="page-link">{{ i }}</span>
+								</li>
+							{% elif i > post_list.number|add:'-3' and i < post_list.number|add:'3' %}
+								<li class="page-item">
+									<a class="page-link" href="?page={{ i }}">{{ i }}</a>
+								</li>
+							{% elif i == post_list.number|add:'-3' or i == post_list.number|add:'3' %}
+								<li class="page-item disabled">
+									<span class="page-link">..</span>
+								</li>
+							{% endif %}
+						{% endfor %}
+			
+						{% if post_list.has_next %}
+							<li class="page-item">
+								<a class="page-link" href="?page={{ post_list.paginator.num_pages }}">Next</a>
+							</li>
+						{% else %}
+							<li class="page-item disabled">
+								<span class="page-link">Next</span>
+							</li>
+						{% endif %}
+					</ul>
+				</nav>
+				<!-- Pagination END -->
+			</div>
+
+		</div>
+
+		
+      <div class="col-lg-4">
+        <!-- Card START -->
+        <!-- Podcast social START -->
+        <div class="row mt-4 mt-lg-0 g-2">
+          <!-- Facebook -->
+          <div class="col-6 col-sm-3">
+            <a href="#" class="bg-facebook rounded text-center text-white-force p-3 d-block">
+              <i class="fab fa-facebook-square fs-5 mb-2"></i>
+              <h6 class="m-0">1.5K</h6>
+              <span class="small">Fans</span>
+            </a>
+          </div>
+          <!-- Instagram -->
+          <div class="col-6 col-sm-3">
+            <a href="#" class="bg-instagram-gradient rounded text-center text-white-force p-3 d-block">
+              <i class="fab fa-instagram fs-5 mb-2"></i>
+              <h6 class="m-0">1.8M</h6>
+              <span class="small">Followers</span>
+            </a>
+          </div>
+          <!-- Youtube -->
+          <div class="col-6 col-sm-3">
+            <a href="#" class="bg-youtube rounded text-center text-white-force p-3 d-block">
+              <i class="fab fa-youtube-square fs-5 mb-2"></i>
+              <h6 class="m-0">22K</h6>
+              <span class="small">Subs</span>
+            </a>
+          </div>
+          <!-- Twitter -->
+          <div class="col-6 col-sm-3">
+            <a href="#" class="bg-twitter rounded text-center text-white-force p-3 d-block">
+              <i class="fab fa-twitter-square fs-5 mb-2"></i>
+              <h6 class="m-0">5K</h6>
+              <span class="small">Followers</span>
+            </a>
+          </div>
+        </div>
+        <!-- Podcast social END -->
+
+
+		<div>
+			<h4 class="mt-5 mb-3">Most read</h4>
+			{% for post in popular_posts %}
+				<div class="d-flex position-relative mb-3">
+					<span class="me-3 fa-fw fw-bold fs-3 opacity-5" style="min-width: 30px; text-align: right;">{{ forloop.counter }}</span>
+					<h6><a href="{% url 'post_detail' post.slug %}" class="stretched-link">{{ post.title }}</a></h6>
+				</div>
+			{% endfor %}
+		</div>
+		
+<!-- ADV widget START -->
+{% for iklan in iklan_bottom %}
+<div class="col-12 col-sm-6 col-lg-12 my-4">
+	<a href="{{ iklan.link }}" class="d-block card-img-flash">
+		<img src="{{ iklan.gambar.url }}" alt="{{ iklan.judul }}">
+	</a>
+	<div class="smaller text-end mt-2">ads via <a href="#" class="text-body"><u>Bootstrap</u></a></div>
+</div>
+{% endfor %}
+
+<div>
+	<h4 class="mt-4 mb-3">Trending topics</h4>						
+	<!-- Category item -->	
+	{% for kat in kategori %}
+	  <div class="text-center mb-3 card-bg-scale position-relative overflow-hidden rounded bg-dark-overlay-4" style="background-image:url(assets/images/blog/4by3/01.jpg); background-position: center left; background-size: cover;">							
+		<div class="p-3">
+		  <a href="{% url 'kategori_show' slug=kat.slug %}" class="stretched-link btn-link fw-bold text-white h5">{{ kat.kategori }}</a>
+		</div>
+	  </div>
+	{% endfor %}
+	</div>
+
+	<!-- ADV widget START -->
+{% for iklan in iklan_middle %}
+<div class="col-12 col-sm-6 col-lg-12 my-4">
+	<a href="{{ iklan.link }}" class="d-block card-img-flash">
+		<img src="{{ iklan.gambar.url }}" alt="{{ iklan.judul }}">
+	</a>
+	<div class="smaller text-end mt-2">ads via <a href="#" class="text-body"><u>Bootstrap</u></a></div>
+</div>
+{% endfor %}
+
+	<div class="col-12 col-sm-6 col-lg-12">							
+		<h4 class="mt-4 mb-3">Berita Populer</h4>	
+		 {% for post in randompost %}						
+		<!-- Recent post item -->							
+		<div class="card mb-3">								
+		<div class="row g-3">									
+		<div class="col-4">										
+		<img class="rounded" src="/media/{{ post.banner }}" alt="">
+		</div>									
+		<div class="col-8">
+		<h6><a href="{% url 'post_detail' post.slug  %}" class="btn-link stretched-link text-reset fw-bold">{{ post.title }}</a></h6>
+		<div class="small mt-1">{{ post.kategori }}</div></div></div></div>
+		{% endfor %}
+		</div>	
+		
+		<!-- ADV widget START -->
+		{% for iklan in iklanlebar %}
+		<div class="col-12 col-sm-6 col-lg-12 my-4">
+			<a href="{{ iklan.link }}" class="d-block card-img-flash">
+				<img src="{{ iklan.gambar.url }}" alt="{{ iklan.judul }}">
+			</a>
+			<div class="smaller text-end mt-2">ads via <a href="#" class="text-body"><u>Bootstrap</u></a></div>
+		</div>
+		{% endfor %}
+		<!-- ADV widget END -->		
+
+
+
+      </div>
+      <!-- Sidebar END -->
+    </div>
+	</div>
+</section>
+<!-- =======================
+Featured video END -->
+
+{% endblock konten %}

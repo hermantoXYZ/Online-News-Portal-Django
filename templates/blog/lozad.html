@@ -1,0 +1,107 @@
+{% extends "blog/base.html" %}
+{% block title %}
+    {{ post.title }}
+    | Afrizal's Blog
+{% endblock title %}
+{% block konten %}
+<div id="main">
+    <div class="container">
+        <div class="card" id="konten">
+            <h1>
+                <strong>Dokumentasi Pribadi dalam pengetikan Postingan</strong>
+            </h1>
+
+            <p>
+                <strong>1.
+                </strong>
+                <strong>Image responsive &amp; zoom</strong>
+            </p>
+
+            <pre>
+            <code>class="detilnya materialboxed responsive-img"</code></pre>
+
+            <p>untuk didalam postingan, efek zoom ketika di klik</p>
+
+            <p>
+                <strong>2. Image responsive biasa</strong>
+            </p>
+
+            <pre>
+            <code>class="center responsive-img"
+            </code></pre>
+
+            <p>Responsive biasa, ditengah</p>
+
+            <p>
+                <strong>3. List bullets</strong>
+            </p>
+
+            <pre>
+            <code>&lt;li style="list-style-type:initial"&gt; terserah &lt;/li&gt;</code></pre>
+
+            <p>dikarenakan tidak bisa menampilkan bullets</p>
+
+            <p>4. Lazy Load</p>
+
+            <pre>
+            <code class="language-html"> &lt;img class="progressive__img progressive--not-loaded" data-progressive="gambar-asli-disini" src="https://placehold.it/600x350&amp;text=placeholder"&gt;</code></pre>
+
+            <p>Untuk lazy load</p>
+
+            <p>5. Final untuk postingan</p>
+
+            <pre>
+            <code class="language-html"> &lt;img class="detilnya materialboxed responsive-img progressive__img progressive--not-loaded" data-progressive="gambar-asli-disini" src="https://placehold.it/600x350&amp;text=placeholder"&gt;</code></pre>
+
+            <p>diatas adalah untuk img setiap isi postingan</p>
+
+            <p>&nbsp;</p>
+
+            <p>&nbsp;</p>
+
+            <p>6. Code generate</p>
+            <div class="card" style="padding: 5%;">
+                <label for="urlfoto">URL foto:</label>
+                <input type="text" id="urlfoto" name="urlfoto"><br><br>
+                <label for="heightfotonya">Height:</label>
+                <input type="number" value="0" id="heightfotonya" name="heightfotonya"><br><br>
+                <label for="widthfotonya">Width:</label>
+                <input type="number" value="0" id="widthfotonya" name="widthfotonya"><br><br>
+                <input
+                    type="button"
+                    value="Proses"
+                    id="proses"
+                    name="proses"
+                    onclick="proses()">
+                <br>
+                <textarea class="materialize-textarea" name="has" id="has" rows="20" cols="10"></textarea>
+
+            </div>
+
+            <script>
+                // texturl.oninput = function() {   result1.innerHTML = px.value;
+                // result.innerHTML = texturl.value; };
+                function proses() {
+                    // k = document.getElementById("result");  b =
+                    // document.getElementById("urlfoto");  result.innerHTML = texturl.value;
+                    // console.log(b.value) <img class="detilnya materialboxed responsive-img
+                    // progressive__img progressive--not-loaded"
+                    // data-progressive="gambar-asli-disini"
+                    // src="https://placehold.it/600x350&text=Placeholder" style="height:229px;
+                    // width:624px">
+
+                    has.value = '<img class="detilnya materialboxed responsive-img progressive__img progressive' +
+                            '--not-loaded" data-progressive="' + urlfoto.value + '" src="https://placehold.i' +
+                            't/600x350&text=Placeholder" style="height:' + heightfotonya.value +
+                            'px; width:' + widthfotonya.value + 'px">';
+                    console.log(coba)
+                }
+            </script>
+
+            <p>&nbsp;</p>
+
+        </div>
+    </div>
+</div>
+
+{% endblock konten %}

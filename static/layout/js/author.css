@@ -1,0 +1,88 @@
+@import url(https://weloveiconfonts.com/api/?family=zocial);
+
+/* zocial */
+[class*="zocial-"]:before {
+  font-family: 'zocial', sans-serif;
+  font-syle: normal;
+}
+
+.author(@baseColor) {
+  border: 1px solid darken(@baseColor, 10%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+  background: darken(@baseColor, 3%);
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around;
+  .info {
+    text-align: center;
+    align-items: center;
+    float: left;
+    color: #fff;
+    padding-top: 20px;
+    flex: 1 100%;
+    @media all and (min-width: 600px) {
+      flex: 1; 
+    }
+    .name {
+      font-weight: 300;
+      font-family: 'Open Sans Condensed', sans-serif;
+      margin-top: -5px;
+    }
+    .social {
+      a {
+        text-decoration: none;
+        color: lighten(@baseColor, 5%);
+        padding: 5px;
+        &:hover {
+          color: lighten(@baseColor, 20%);
+        }
+      }
+      margin-top: -23px;
+    }
+    img {
+      border-radius: 50%;
+      height: 100px;
+      width: 100px;
+    }
+  }
+
+  .about {
+    float: right;
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
+    background-color: @baseColor;
+    flex: 1 100%;
+    @media all and (min-width: 600px) {
+      flex: 2; 
+    }
+    .bio {
+      padding: 10px;
+    }
+  }
+  ::-moz-selection {
+    background-color: lighten(@baseColor, 10%);
+    color: #fff;
+  }
+  ::selection {
+    background-color: lighten(@baseColor, 10%);
+    color: #fff;
+  }
+}
+
+.author-green {
+  .author(#2ecc71);
+}
+
+.author-turquoise {
+  .author(#1abc9c);
+}
+
+.author-purple {
+  .author(#9b59b6);
+}
+
+.author-red {
+  .author(#e74c3c);
+}

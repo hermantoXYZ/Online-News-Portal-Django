@@ -1,0 +1,260 @@
+{% load static %}  
+<!DOCTYPE html>
+<html amp lang="en">
+<head>
+   <script type="module" src="{% url 'home' %}pwabuilder-sw-register.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-162290279-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-162290279-1');
+</script>
+ <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "NewsArticle",
+        "headline": "Article headline",
+        "image": ["thumbnail1.jpg"],
+        "datePublished": "2015-02-05T08:00:00+08:00"
+      }
+    </script>
+    <script
+      async
+      custom-element="amp-carousel"
+      src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"
+    ></script>
+    <script
+      async
+      custom-element="amp-ad"
+      src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"
+    ></script>
+    <style amp-boilerplate>
+      body {
+        -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+        -moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+        -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+        animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+      }
+      @-webkit-keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+      @-moz-keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+      @-ms-keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+      @-o-keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+      @keyframes -amp-start {
+        from {
+          visibility: hidden;
+        }
+        to {
+          visibility: visible;
+        }
+      }
+    </style>
+    <noscript
+      ><style amp-boilerplate>
+        body {
+          -webkit-animation: none;
+          -moz-animation: none;
+          -ms-animation: none;
+          animation: none;
+        }
+      </style></noscript
+    >
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    
+    <link rel='manifest' href='{% static 'layout/manifest.json' %}'>
+    <!--<link rel='manifest' href='{% static 'layout/manifest.json' %}'>-->
+    
+    <link href="{% static 'layout/a2hs/style/addtohomescreen.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+    <!--<script type="text/javascript" src="{% static 'layout/pwabuilder-sw.js' %}"></script>-->
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="apple-mobile-web-app-title" content="Add to Home">
+
+<link rel="shortcut icon" sizes="16x16" href="{% static 'layout/img/logo2.png' %}">
+<link rel="shortcut icon" sizes="196x196" href="{% static 'layout/img/logo2.png' %}">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="{% static 'layout/img/logo2.png' %}">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'layout/img/logo2.png' %}">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="{% static 'layout/img/logo2.png' %}">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'layout/img/logo2.png' %}">
+<link rel="apple-touch-icon-precomposed" sizes="76x76" href="{% static 'layout/img/logo2.png' %}">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'layout/img/logo2.png' %}">
+<link rel="apple-touch-icon-precomposed" href="{% static 'layout/img/logo2.png' %}">
+<meta name="google-site-verification" content="OfJZtR4Rq2t2gM6BWPfWwwXl2oNS0iCIIaxI4HI-Jns" />
+{% block meta %}{% endblock meta %}
+    
+  <!-- CSS  -->
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/default.min.css">
+  <script async src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script async type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="{% static 'layout/css/materialize.css' %} " type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="{% static 'layout/js/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <!--Author-->
+    <link href="{% static 'layout/js/author.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700|Open+Sans:400,700'>
+  <link rel="icon" href="{% static 'layout/img/logo2.png' %} " sizes="32x32" />
+  <link rel="alternate" type="application/rss+xml" title="Postingan Terbaru kami" href="/rss/feed/" />
+  <link rel="alternate" type="application/rss+xml" title="Kategori Terbaru kami" href="/rss/kategori/" />
+  <title>{% block title %}{% endblock title %}</title>
+  
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+<script>
+  var OneSignal = window.OneSignal || [];
+  OneSignal.push(function() {
+    OneSignal.init({
+      appId: "14c3a3e5-931a-430c-ba6d-b5b227f5b741",
+    });
+  });
+</script>
+</head>
+<body class="grey lighten-4">
+    <div class="navbar-fixed">
+        <nav class="indigo darken-2 z-depth-2" role="navigation">
+          <div class="nav-wrapper container">
+            <a id="logo-container" href="/" class="brand-logo white-text"><img  alt="gambar" src="{% static 'layout/img/logo.png' %}" style="padding-top:10px;height:56px;width: 165px;"></a>
+            <ul class="right hide-on-med-and-down">
+              <li><a href="/">Home</a></li>
+              <li><a href="/kategori/Tutorial/">Tutorial</a></li>
+              <li><a href="/kategori/MyStory/">My Story</a></li>
+              <li><a href="https://afrizalmy.com">About Me</a></li>
+
+            </ul>
+      
+      
+            <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          </div>
+        </nav>
+      </div>
+<ul id="nav-mobile" class="sidenav white-text">
+  <li><a href="/">Home</a></li>
+  <li><a href="/kategori/Tutorial/">Tutorial</a></li>
+  <li><a href="/kategori/MyStory/">My Story</a></li>
+  <li><a href="https://afrizalmy.com">About Me</a></li>
+</ul>
+{% block konten %}
+{% block banner %}
+{% endblock banner %}
+{% endblock konten %}
+
+
+  <footer class="page-footer indigo">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Tentang Blog Ini</h5>
+          <p class="grey-text text-lighten-4">
+            Website blog ini digunakan untuk menulis dan mengisi waktu luang untuk membagi pengalaman. 
+            Pada website ini menggunakan bahasa pemgoraman Python sebagai backendnya.
+            Semoga pembaca bisa mendapatkan manfaat dari pengalaman yang saya bagikan.
+          </p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="white-text">Find ME</h5>
+          <ul>
+            <li><a class="grey-text text-lighten-3" href="https://instagram.com/afrizal.my" target="_blank">Instagram</a></li>
+            <li><a class="grey-text text-lighten-3" href="https://twitter.com/afrizalpatlas" target="_blank">Twitter</a></li>
+            <li><a class="grey-text text-lighten-3" href="https://facebook.com/rizal.htmI" target="_blank">Facebook</a></li>
+            <li><a class="grey-text text-lighten-3" href="https://instagram.com/afrizal.my" target="_blank">Linkedin</a></li>
+            <li><a class="grey-text text-lighten-3" href="https://t.me/af_rizal" target="_blank">Telegram</a></li>
+            <li><a class="grey-text text-lighten-3" href="http://line.me/ti/p/~af_rizal">Line</a></li>
+
+          </ul>
+        </div>
+        <!--<div class="col s12 m4 center">-->
+        <!--      <h5 hidden class="white-text">Find ME</h5>-->
+        <!--  <ul>-->
+        <!--    <li><script type="text/javascript" src="https://www.stat-counter.org/count/5get"></script><br>-->
+        <!--     <a href='https://www.symptoma.pt/pt/info/covid-19'>SARS-CoV-2</a>  <script type='text/javascript' src='https://whomania.com/ctr?id=5f489a285efe25e18bb91bca380e6795d994d730'></script></li>-->
+
+        <!--  </ul>-->
+        <!--</div>-->
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container white-text">
+        Copyright &copy; <script type="text/javascript">
+          document.write(new Date().getFullYear());
+      </script> Afrizal Muhammad Yasin |
+      Made with <a class="brown-text text-lighten-3" href="http://materializecss.com">Materializecss</a>
+      <!-- <div class="right">Materializecss</div> -->
+      </div>
+    </div>
+  </footer>
+  <script src="{% static 'layout/a2hs/src/addtohomescreen.js' %}"></script>
+  <script>
+addToHomescreen();
+</script>
+   <!--<script  src="{% url 'home' %}pwabuilder-sw.js"></script>-->
+<script src="https://afrizal.web.id/assets/projects2/manup.js"></script>
+<!--// <script>-->
+<!--//       self.addEventListener('fetch', (e) => {-->
+<!--//   e.respondWith(-->
+<!--//     caches.match(e.request).then((r) => {-->
+<!--//           console.log('[Service Worker] Fetching resource: '+e.request.url);-->
+<!--//       return r || fetch(e.request).then((response) => {-->
+<!--//                 return caches.open(cacheName).then((cache) => {-->
+<!--//           console.log('[Service Worker] Caching new resource: '+e.request.url);-->
+<!--//           cache.put(e.request, response.clone());-->
+<!--//           return response;-->
+<!--//         });-->
+<!--//       });-->
+<!--//     })-->
+<!--//   );-->
+<!--// });-->
+<!--//   </script>-->
+  
+
+  <!--  Scripts-->
+  <!-- <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script> -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="{% static 'layout/js/materialize.js' %}"></script>
+  <script src="{% static 'layout/js/init.js' %}"></script>
+<script>
+     $(document).ready(function(){
+    $('.materialboxed').materialbox();
+  });
+  $(document).ready( function() {
+  $('.responsive-img').css([".detilnya"]);
+}
+</script>
+  </body>
+</html>
