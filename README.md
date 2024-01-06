@@ -56,7 +56,7 @@ Run the development server:
 python manage.py runserver
 ```
 
-## :eyes: Demonstration
+## :eyes: Donate with PayPal
 
 [![Donate with PayPal](https://raw.githubusercontent.com/stefan-niedermann/paypal-donate-button/master/paypal-donate-button.png)](https://paypal.me/hermantoxyz?country.x=ID&locale.x=id_ID)
 
