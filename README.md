@@ -54,3 +54,6 @@ Run the development server:
 
 ```bash
 python manage.py runserver
+
+![Donate with PayPal](https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/PayPal_logo.svg/2560px-PayPal_logo.svg.png)
+
